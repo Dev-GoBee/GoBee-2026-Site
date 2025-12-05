@@ -3,7 +3,8 @@ import { Instagram, Linkedin, Facebook, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
-  const LOGO_URL = "https://gobee.odoo.com/web/image/website/1/logo/";
+  // Logotipo Gobee (URL Externa)
+  const CUSTOM_LOGO = "https://gobee.com.br/wp-content/uploads/2025/12/logo-color-black.png";
 
   return (
     <footer className="bg-white text-gray-600 pt-16 pb-12 border-t border-gray-100 font-sans">
@@ -14,7 +15,7 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <Link to="/" className="inline-block">
               <img 
-                src={LOGO_URL} 
+                src={CUSTOM_LOGO} 
                 alt="Gobee Logo" 
                 className="h-12 w-auto"
               />

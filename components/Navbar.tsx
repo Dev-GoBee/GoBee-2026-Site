@@ -23,8 +23,8 @@ const Navbar: React.FC = () => {
     setActiveDropdown(null);
   }, [location]);
 
-  // Logo URL - Pulling directly from the source or generic placeholder if offline
-  const LOGO_URL = "https://gobee.odoo.com/web/image/website/1/logo/";
+  // Logotipo Gobee (URL Externa)
+  const CUSTOM_LOGO = "https://gobee.com.br/wp-content/uploads/2025/12/logo-color-black.png";
 
   return (
     <nav 
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1 group relative z-50">
             <img 
-              src={LOGO_URL} 
+              src={CUSTOM_LOGO} 
               alt="Gobee Logo" 
               className={`h-10 w-auto transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
             />
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
           </div>
             
           <div className="hidden md:block">
-             <button className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all text-sm shadow-lg ${
+             <button onClick={() => document.getElementById('contato')?.scrollIntoView({behavior: 'smooth'})} className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all text-sm shadow-lg ${
                scrolled 
                 ? 'bg-gobee-600 text-white hover:bg-gobee-700 shadow-gobee-200' 
                 : 'bg-white text-gobee-600 hover:bg-gray-100'
@@ -164,7 +164,13 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             ))}
-            <button className="mt-4 w-full py-4 bg-gobee-600 text-white rounded-full font-bold shadow-lg">
+            <button 
+              onClick={() => {
+                document.getElementById('contato')?.scrollIntoView({behavior: 'smooth'});
+                setIsMobileMenuOpen(false);
+              }}
+              className="mt-4 w-full py-4 bg-gobee-600 text-white rounded-full font-bold shadow-lg"
+            >
               Falar com especialista
             </button>
           </div>
